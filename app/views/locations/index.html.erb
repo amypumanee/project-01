@@ -1,0 +1,6 @@
+<h1>All Locations</h1>
+
+<% @locations.each do |location| %>
+  <%= image_tag location.image, :class => 'thumb' if location.image.present? %>
+  <p><%= link_to location.name, location %></p>
+<% end %>

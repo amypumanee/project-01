@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to 'All Events', events_path %>
+      <%= link_to 'New Event', new_event_path %>
+      |
+      <%= link_to 'All Locatons', locations_path %>
+      <%= link_to 'New Location', new_location_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>
