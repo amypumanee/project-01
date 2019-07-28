@@ -1,7 +1,7 @@
 User.destroy_all
 puts "Creating users"
-u1 = User.create :email => 'amy@gmail.com'
-u2 = User.create :email => 'viva@gmail.com'
+u1 = User.create :email => 'amy@gmail.com', :password => 'chicken', :admin => true
+u2 = User.create :email => 'viva@gmail.com', :password => 'chicken'
 
 Event.destroy_all
 puts "Creating events"
