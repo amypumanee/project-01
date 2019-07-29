@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_for_login, :only => [:edit, :update]
+  before_action :check_for_login, :only => [:edit, :update, :events]
   before_action :check_for_admin, :only => [:index]
 
   def index
@@ -27,6 +27,10 @@ class UsersController < ApplicationController
   def update
     @current_user.update user_params
     redirect_to root_path
+  end
+
+  def events
+  @user = User.find params[:id]
   end
 
   private

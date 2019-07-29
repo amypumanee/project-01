@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
   resources :users, :only => [:new, :create, :update, :index]
   get '/users/edit' => 'users#edit', :as => :edit_user
+  get '/users/:id/events' => 'users#events', :as => 'user_events'
 
   resources :events #, :only => [:new, :create]
   post '/events/:id/attend' => 'events#attend', :as => 'attend_event'

@@ -17,9 +17,13 @@
 
 <%= button_to "Attend this event", attend_event_path(@event), :method => 'post' %>
 
-<% @event.users.each do |user| %>
-  <p><%= image_tag user.image, :class => 'thumb' if user.image.present? %></p>
-<% end %>
+<ul>
+  <li>Attendee list:
+  <% @event.users.each do |user| %>
+    <p><%= image_tag user.image, :class => 'thumb' if user.image.present? %></p>
+  <% end %>
+  </li>
+</ul>
 
 
 <div class="controls">
