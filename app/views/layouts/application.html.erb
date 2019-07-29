@@ -15,11 +15,11 @@
       <% if @current_user.present? %>
         <%= link_to "All Events", events_path %>
         <%= link_to 'All Locatons', locations_path %>
+        <%= link_to 'New Event', new_event_path %>
+        <%= link_to 'New Location', new_location_path %>
         <%= link_to "Edit profile", edit_user_path %>
         <% if @current_user.admin? %>
           <%= link_to "All users", users_path %>
-          <%= link_to 'New Event', new_event_path %>
-          <%= link_to 'New Location', new_location_path %>
         <% end %>
         <%= image_tag @current_user.image, :class => 'thumb' if @current_user.image.present? %>
         <%= link_to "Logout #{ @current_user.email }", login_path, :method => 'delete' %>

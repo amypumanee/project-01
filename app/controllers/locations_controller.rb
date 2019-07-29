@@ -1,4 +1,6 @@
 class LocationsController < ApplicationController
+  before_action :check_for_admin, :only => [:edit, :destroy]
+
   def index
     @locations = Location.all.order(:name)
   end

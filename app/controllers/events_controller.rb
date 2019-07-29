@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  before_action :check_for_login, :only => [:attend]
+  before_action :check_for_admin, :only => [:edit, :destroy]
+
   def index
     @events = Event.all.order(:date)
   end
@@ -30,6 +33,12 @@ class EventsController < ApplicationController
   event = Event.find params[:id]
   event.destroy
   redirect_to event_path
+  end
+
+  def attend
+  event = Event.find params[:id]
+  @current_user.events << event
+  redirect_to event # TODO: redirect_to user_events
   end
 
   private

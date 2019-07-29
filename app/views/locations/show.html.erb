@@ -1,6 +1,6 @@
 <h1><%= @location.name %></h1>
 
-<%= image_tag @location.image, :class => 'feature' if @event.image.present? %>
+<%= image_tag @location.image, :class => 'feature' if @location.image.present? %>
 <h3>More event in this area</h3>
 
 <% @location.events.each do |event| %>
