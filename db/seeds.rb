@@ -1,7 +1,10 @@
 User.destroy_all
 puts "Creating users"
-u1 = User.create :email => 'amy@gmail.com', :password => 'chicken', :admin => true
-u2 = User.create :email => 'viva@gmail.com', :password => 'chicken'
+u1 = User.create :email => 'amy@gmail.com', :name => 'Amy Pumanee', :dob => '09/03/2000', :phone => '0406665555', :image => "https://media.licdn.com/dms/image/C5603AQFr29JGFCIG3g/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=tBk-yyPbBaehzY6N1BPw5oFntqmlKfT0_s2R1z86KiE", :password => 'chicken', :admin => true
+u2 = User.create :email => 'ana@gmail.com', :name => 'Ana De', :dob => '09/07/2000', :phone => '0402226677', :image => "https://www.goldenglobes.com/sites/default/files/articles/cover_images/gettyimages-594338886.jpg", :password => 'chicken'
+u3 = User.create :email => 'john@gmail.com', :name => 'John Elmore', :dob => '10/07/2000', :phone => '0402226688', :image => "https://www.timeshighereducation.com/sites/default/files/byline_photos/me.jpg", :password => 'chicken'
+u4 = User.create :email => 'tim@gmail.com', :name => 'Tim Dean', :dob => '13/08/2000', :phone => '0402226699', :image => "https://researchers.mq.edu.au/files-asset/81600353/IMG_0039.jpgg", :password => 'chicken'
+u5 = User.create :email => 'miranda@gmail.com', :name => 'Miranda Loren', :dob => '09/03/2000', :phone => '0406688888', :image => "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fyolarobert1%2Ffiles%2F2019%2F06%2FMiranda-Hero-Image-2017-Crop-2-1200x1022.jpg", :password => 'chicken'
 
 Event.destroy_all
 puts "Creating events"
@@ -25,5 +28,8 @@ l3.events << e3
 
 
 # User and Event
-u1.events << e1 << e2
+u1.events << e1 << e2 << e3
 u2.events << e2 << e3
+u3.events << e2 << e3
+u4.events << e1 << e2
+u5.events << e1 << e2

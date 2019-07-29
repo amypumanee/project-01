@@ -18,7 +18,7 @@
 <%= button_to "Attend this event", attend_event_path(@event), :method => 'post' %>
 
 <% @event.users.each do |user| %>
-  <p><%= user.email.uniq %></p>
+  <p><%= image_tag user.image, :class => 'thumb' if user.image.present? %></p>
 <% end %>
 
 
