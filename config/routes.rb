@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:new, :create, :update, :index]
   get '/users/edit' => 'users#edit', :as => :edit_user
   get '/users/:id/events' => 'users#events', :as => 'user_events'
+  get '/users/events' => 'users#events'
 
   resources :events #, :only => [:new, :create]
   post '/events/:id/attend' => 'events#attend', :as => 'attend_event'

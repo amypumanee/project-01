@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :check_for_admin, :only => [:edit, :destroy]
 
   def index
-    @events = Event.all.order(:date)
+    @events = Event.all.order(:start_date)
   end
 
   def new
@@ -44,6 +44,6 @@ class EventsController < ApplicationController
   private
     def event_params
     # Strong parameters: whitelist of sanitised input -- stuff we are happy to let the user provide us.
-    params.require(:event).permit(:title, :date, :image, :address, :info, :location_id)
+    params.require(:event).permit(:title, :start_date, :end_date, :image, :address, :info, :location_id)
   end
 end

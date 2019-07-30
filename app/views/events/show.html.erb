@@ -4,8 +4,8 @@
 <h3>Details</h3>
 <ul>
   <li>Title: <%= @event.title %></li>
-  <% if @event.date.present? %>
-    <li>Date: <%= @event.date.strftime '%a, %b %e %y' %></li>
+  <% if @event.start_date.present? %>
+    <li>Date: <%= @event.start_date.strftime '%a, %b %e %y, %l:%M %P' %> to <%= @event.end_date.strftime '%a, %b %e %y, %l:%M %P' %> </li>
   <% end %>
   <li>Address: <%= @event.address %></li>
   <% if @event.location.present? %>

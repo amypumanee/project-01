@@ -4,8 +4,8 @@
   <%= image_tag event.image, :class => 'thumb' if event.image.present? %>
   <ul>
     <li>Title: <%= link_to event.title, event %></li>
-    <% if event.date.present? %>
-      <li>Date: <%= event.date.strftime '%a, %b %e %y' %></li>
+    <% if event.start_date.present? %>
+      <li>Date: <%= event.start_date.strftime '%a, %b %e %y, %l:%M %P' %> to <%= event.end_date.strftime '%a, %b %e %y, %l:%M %P' %></li>
     <% end %>
     <li>Address: <%= event.address %></li>
   </ul>

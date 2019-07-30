@@ -2,7 +2,9 @@
   <%= f.label :title %>
   <%= f.text_field :title, :autofocus => true, :required => true %>
   <%= f.label :date %>
-  <%= f.text_field :date, :placeholder => 'DD-MM-YYYY' %>
+  <%= f.text_field :start_date, :placeholder => 'DD-MM-YYYY, H:MM am' %>
+  <%= f.label :end_date %>
+  <%= f.text_field :end_date, :placeholder => 'DD-MM-YYYY, H:MM pm' %>
   <%= f.label :address %>
   <%= f.text_field :address %>
   <%= f.label :image %>

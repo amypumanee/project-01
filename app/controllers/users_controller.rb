@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def events
-  @user = User.find params[:id]
+    @user = @current_user
   end
 
   private
