@@ -52,3 +52,5 @@ gem 'rails_12factor', group: :production
 gem 'bootstrap'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'active_model_otp'
+gem 'rqrcode'

@@ -24,12 +24,14 @@ Rails.application.routes.draw do
   get '/users/edit' => 'users#edit', :as => :edit_user
   get '/users/:id/events' => 'users#events', :as => 'user_events'
   get '/users/events' => 'users#events'
+  get '/users/:id/qrs' => 'users#qrs', :as => 'user_qrs'
 
-  resources :events #, :only => [:new, :create]
-  post '/events/:id/attend' => 'events#attend', :as => 'attend_event'
+  resources :events  #, :only => [:new, :create]
+  # post '/events/:id/attend' => 'events#attend', :as => 'attend_event'
+
+  resources :attends
 
   resources :locations
-
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

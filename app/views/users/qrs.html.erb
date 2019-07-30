@@ -1,0 +1,24 @@
+<h1>My QR code</h1>
+
+<ul>
+  <% @current_user.attends.each do |attend| %>
+    <li><%= link_to attend.event.title, event_path(attend.event_id) %>
+      <% @qr = RQRCode::QRCode.new(attend.provisioning_uri("Events_app"), :size => 10, :level => :h ) %>
+
+      <table class="qr">
+        <% @qr.modules.each_index do |x| %>
+            <tr>
+              <% @qr.modules.each_index do |y| %>
+                  <% if @qr.dark?(x,y) %>
+                      <td class="black"/>
+                  <% else %>
+                      <td class="white"/>
+                  <% end %>
+              <% end %>
+            </tr>
+        <% end %>
+      </table>
+    </li>
+
+  <% end %>
+</ul>

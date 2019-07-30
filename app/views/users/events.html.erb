@@ -1,13 +1,12 @@
 <h1>My Events</h1>
 
 <ul>
-  <% @user.events.each do |event| %>
-    <li><%= link_to event.title, event %></li>
+  <% @current_user.attends.each do |attend| %>
+    <li><%= link_to attend.event.title, event_path(attend.event_id) %></li>
   <% end %>
 </ul>
 
 <p>My events calendar</p>
 <div id="calendar">
-
 
 </div>

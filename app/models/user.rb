@@ -7,6 +7,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string
+#  name            :text
+#  admin           :boolean
+#  image           :text
+#  dob             :date
+#  phone           :text
 #
 
 class User < ApplicationRecord
@@ -14,5 +19,5 @@ class User < ApplicationRecord
 
   # Validations -- see the Rails Guide
   validates :email, :presence => true, :uniqueness => true
-  has_and_belongs_to_many :events
+  has_many :attends
 end

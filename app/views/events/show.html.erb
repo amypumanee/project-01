@@ -15,12 +15,13 @@
 <p><%= @event.info if @event.info.present?%></p>
 
 
-<%= button_to "Attend this event", attend_event_path(@event), :method => 'post' %>
+<%= button_to "Attend this event", attend_path(@event), :method => 'post' %>
+
 
 <ul>
   <li>Attendee list:
-  <% @event.users.each do |user| %>
-    <p><%= image_tag user.image, :class => 'thumb' if user.image.present? %></p>
+  <% @event.attends.each do |attend| %>
+    <p><%= image_tag attend.user.image, :class => 'thumb' if attend.user.image.present? %></p>
   <% end %>
   </li>
 </ul>

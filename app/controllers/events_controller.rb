@@ -20,9 +20,9 @@ class EventsController < ApplicationController
   end
 
   def update
-  event = Event.find params[:id]
-  event.update event_params
-  redirect_to event
+    event = Event.find params[:id]
+    event.update event_params
+    redirect_to event
   end
 
   def show
@@ -30,15 +30,15 @@ class EventsController < ApplicationController
   end
 
   def destroy
-  event = Event.find params[:id]
-  event.destroy
-  redirect_to event_path
+    event = Event.find params[:id]
+    event.destroy
+    redirect_to event_path
   end
 
   def attend
-  event = Event.find params[:id]
-  @current_user.events << event
-  redirect_to event # TODO: redirect_to user_events
+    event = Event.find params[:id]
+    attend = Attend.create(:user_id => @current_user.id, :event_id => event.id)
+    redirect_to event # TODO: redirect_to user_events
   end
 
   private

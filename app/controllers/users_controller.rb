@@ -30,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   def events
-    @user = @current_user
   end
 
   private

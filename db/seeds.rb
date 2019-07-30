@@ -34,6 +34,41 @@ l3 = Location.create(:name => 'Bondi Beach', :image => 'https://upload.wikimedia
 l4 = Location.create(:name => 'Sydney', :image => 'https://www.tourstogo.com.au/things-to-do/wp-content/uploads/2018/12/Sydney-Featured.jpg' )
 l5 = Location.create(:name => 'Marrickville', :image => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Marrickville4.JPG/270px-Marrickville4.JPG' )
 
+Attend.destroy_all
+puts "Creating Attends"
+a1 = Attend.create(:user_id => u1.id, :event_id => e1.id)
+a2 = Attend.create(:user_id => u1.id, :event_id => e2.id)
+a3 = Attend.create(:user_id => u1.id, :event_id => e3.id)
+a4 = Attend.create(:user_id => u1.id, :event_id => e4.id)
+a5 = Attend.create(:user_id => u1.id, :event_id => e5.id)
+a6 = Attend.create(:user_id => u1.id, :event_id => e6.id)
+a7 = Attend.create(:user_id => u1.id, :event_id => e7.id)
+a8 = Attend.create(:user_id => u2.id, :event_id => e1.id)
+a9 = Attend.create(:user_id => u2.id, :event_id => e2.id)
+a10 = Attend.create(:user_id => u2.id, :event_id => e3.id)
+a11 = Attend.create(:user_id => u2.id, :event_id => e4.id)
+a12 = Attend.create(:user_id => u2.id, :event_id => e5.id)
+a13 = Attend.create(:user_id => u2.id, :event_id => e6.id)
+a14 = Attend.create(:user_id => u2.id, :event_id => e7.id)
+a15 = Attend.create(:user_id => u3.id, :event_id => e7.id)
+a16 = Attend.create(:user_id => u3.id, :event_id => e1.id)
+a17 = Attend.create(:user_id => u3.id, :event_id => e2.id)
+a18 = Attend.create(:user_id => u3.id, :event_id => e3.id)
+a19 = Attend.create(:user_id => u3.id, :event_id => e4.id)
+a20 = Attend.create(:user_id => u3.id, :event_id => e5.id)
+a21 = Attend.create(:user_id => u3.id, :event_id => e6.id)
+a22 = Attend.create(:user_id => u4.id, :event_id => e7.id)
+a23 = Attend.create(:user_id => u4.id, :event_id => e2.id)
+a24 = Attend.create(:user_id => u4.id, :event_id => e3.id)
+a25 = Attend.create(:user_id => u4.id, :event_id => e4.id)
+a26 = Attend.create(:user_id => u4.id, :event_id => e5.id)
+a27 = Attend.create(:user_id => u5.id, :event_id => e1.id)
+a28 = Attend.create(:user_id => u5.id, :event_id => e2.id)
+a29 = Attend.create(:user_id => u5.id, :event_id => e3.id)
+a30 = Attend.create(:user_id => u5.id, :event_id => e4.id)
+a31 = Attend.create(:user_id => u5.id, :event_id => e5.id)
+a32 = Attend.create(:user_id => u5.id, :event_id => e6.id)
+a33 = Attend.create(:user_id => u5.id, :event_id => e7.id)
 
 puts "Associations"
 # Location and Event
@@ -41,11 +76,3 @@ l1.events << e1
 l2.events << e2
 l3.events << e3
 l4.events << e4 << e6 << e7
-
-
-# User and Event
-u1.events << e1 << e2 << e3 << e6 << e7
-u2.events << e2 << e3 << e4 << e6 << e7
-u3.events << e2 << e3
-u4.events << e1 << e2 << e3
-u5.events << e1 << e2 << e3
