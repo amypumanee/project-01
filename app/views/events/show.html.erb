@@ -1,33 +1,39 @@
-<h1><%= @event.title %></h1>
-
-<%= image_tag @event.image, :class => 'feature' if @event.image.present? %>
-<h3>Details</h3>
-<ul>
-  <li>Title: <%= @event.title %></li>
-  <% if @event.start_date.present? %>
-    <li>Date: <%= @event.start_date.strftime '%a, %b %e %y, %l:%M %P' %> to <%= @event.end_date.strftime '%a, %b %e %y, %l:%M %P' %> </li>
-  <% end %>
-  <li>Address: <%= @event.address %></li>
-  <% if @event.location.present? %>
-  <li>Explore location: <%= link_to @event.location.name, @event.location %></li>
-<% end %>
-</ul>
-<p><%= @event.info if @event.info.present?%></p>
-
-
-<%= button_to "Attend this event", attend_path(@event), :method => 'post' %>
-
-
-<ul>
-  <li>Attendee list:
-  <% @event.attends.each do |attend| %>
-    <p><%= image_tag attend.user.image, :class => 'thumb' if attend.user.image.present? %></p>
-  <% end %>
-  </li>
-</ul>
-
-
-<div class="controls">
-  <%= link_to "Edit event", edit_event_path(@event) %>
-  <%= link_to "Delete event", @event, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+<div class="card mb-3">
+  <%= cl_image_tag @event.image, :class=>"card-img-top" %>
+    <div class="card-body">
+      <h1 class="card-title"><%= @event.title %></h1>
+      <ul class="card-text">
+        <li>Title: <%= @event.title %></li>
+          <li>Date: <%= @event.start_date.strftime '%a, %b %e %y, %l:%M %P' %> to <%= @event.end_date.strftime '%a, %b %e %y, %l:%M %P' %> </li>
+        <li>Address: <%= @event.address %></li>
+        <% if @event.location.present? %>
+        <li>Explore location: <%= link_to @event.location.name, @event.location %></li>
+        <% end %>
+      </ul>
+      <p class="card-text"><%= @event.info if @event.info.present?%></p>
+      <%= button_to "Attend!", attend_path(@event), :method => 'post', :class => "btn btn-outline-warning" %>
+    </div>
 </div>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-title">Attendee:</p>
+    <ul>
+      <li class="img-attendee">
+        <% @event.attends.each do |attend| %>
+          <%= image_tag attend.user.image, :class => 'img-attendee rounded-circle' if attend.user.image.present? %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <div class="controls">
+      <%= link_to "Edit event", edit_event_path(@event), :class => "breadcrumb-item" %>
+      <%= link_to "Delete event", @event, :method => 'delete', :class => "breadcrumb-item active", :data => {:confirm => 'Are you sure?'} %>
+    </div>
+  </ol>
+</nav>

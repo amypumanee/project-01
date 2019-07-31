@@ -1,6 +1,11 @@
 <h1>All Locations</h1>
-
-<% @locations.each do |location| %>
-  <%= image_tag location.image, :class => 'thumb' if location.image.present? %>
-  <p><%= link_to location.name, location %></p>
-<% end %>
+<div class="card-columns">
+  <% @locations.each do |location| %>
+    <div class="card text-center" style="width: 22rem;">
+      <%= image_tag location.image, :class => 'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-text"><%= link_to location.name, location %></h5>
+      </div>
+    </div>
+  <% end %>
+</div>

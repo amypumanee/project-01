@@ -1,13 +1,23 @@
-<h1><%= @location.name %></h1>
-
-<%= image_tag @location.image, :class => 'feature' if @location.image.present? %>
-<h3>More event in this area</h3>
-
-<% @location.events.each do |event| %>
-  <%= link_to image_tag(event.image, :class => 'thumb'), event %>
-<% end %>
-
-<div class="controls">
-  <%= link_to "Edit location", edit_location_path(@location) %>
-  <%= link_to "Delete location", @location, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+<div class="card mb-3">
+  <%= image_tag @location.image, :class=>"card-img-top" %>
+    <div class="card-body">
+    <h1 class="card-title"><%= @location.name %></h1>
+  </div>
 </div>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">More event in this area</h5>
+      <% @location.events.each do |event| %>
+        <%= link_to image_tag(event.image, :class => 'img-fluid img-thumbnail rounded img-event-in-location'), event %>
+      <% end %>
+  </div>
+</div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <div class="controls">
+      <%= link_to "Loca location", edit_location_path(@location), :class => "breadcrumb-item" %>
+      <%= link_to "Delete location", @location, :method => 'delete', :class => "breadcrumb-item active", :data => {:confirm => 'Are you sure?'} %>
+    </div>
+  </ol>
+</nav>

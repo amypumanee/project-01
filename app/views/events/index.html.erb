@@ -1,12 +1,16 @@
 <h1>All Events</h1>
-
-<% @events.each do |event| %>
-  <%= image_tag event.image, :class => 'thumb' if event.image.present? %>
-  <ul>
-    <li>Title: <%= link_to event.title, event %></li>
-    <% if event.start_date.present? %>
-      <li>Date: <%= event.start_date.strftime '%a, %b %e %y, %l:%M %P' %> to <%= event.end_date.strftime '%a, %b %e %y, %l:%M %P' %></li>
-    <% end %>
-    <li>Address: <%= event.address %></li>
-  </ul>
-<% end %>
+<div class="card-columns">
+  <% @events.each do |event| %>
+    <div class="card" style="width: 22rem;">
+      <%= cl_image_tag event.image, :class => "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= event.title %></h5>
+          <ul class="card-text">
+              <li>Title: <%= link_to event.title, event %></li>
+              <li>Date: <%= event.start_date.strftime '%a, %b %e %y, %l:%M %P' %> to <%= event.end_date.strftime '%a, %b %e %y, %l:%M %P' %></li>
+              <li>Address: <%= event.address %></li>
+            </ul>
+        </div>
+    </div>
+  <% end %>
+</div>

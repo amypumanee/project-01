@@ -1,35 +1,80 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project01</title>
+    <title>EVENTWISH</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= cloudinary_js_config %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <% if @current_user.present? %>
-        <%= link_to "All Events", events_path %>
-        <%= link_to 'All Locatons', locations_path %>
-        <%= link_to 'New Event', new_event_path %>
-        <%= link_to 'New Location', new_location_path %>
-        <%= link_to "Edit profile", edit_user_path %>
-        <%= link_to "My Events", user_events_path(@current_user) %>
-        <%= link_to "My QR code", user_qrs_path(@current_user) %>
-        <% if @current_user.admin? %>
-          <%= link_to "All users", users_path %>
-        <% end %>
-        <%= image_tag @current_user.image, :class => 'thumb' if @current_user.image.present? %>
-        <%= link_to "Logout #{ @current_user.email }", login_path, :method => 'delete' %>
-      <% else %>
-        <%= link_to "Sign up", new_user_path %>
-        <%= link_to "Sign in", login_path %>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><img src="https://png.pngtree.com/element_origin_min_pic/17/08/14/d3deba206624f5062e76dec31c4bb4c7.jpg" width="30" height="30" class="d-inline-block align-top nav_brand" alt=""> EVENTWISH</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+          <%= link_to "Home", root_path, :class => "nav-link" %>
+          </li>
+          <% if @current_user.present? %>
+          <li class="nav-item">
+            <%= link_to "EVENTS", events_path, :class => "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "LOCATIONS", locations_path, :class => "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "My EVENTWISH", user_events_path(@current_user), :class=>"dropdown-item" %>
+              <%= link_to "QR POCKET", user_qrs_path(@current_user), :class=>"dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "My Profile", edit_user_path, :class => "dropdown-item" %>
+            </div>
+          </li>
+          <% if @current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to "All Users", users_path, :class => "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            CREATE NEW
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'New Event', new_event_path, :class=>"dropdown-item" %>
+              <%= link_to 'New Location', new_location_path, :class=>"dropdown-item" %>
+            </div>
+          </li>
+            <% end %>
+
+          <li class="nav-item">
+            <%= image_tag @current_user.image, :class=>"d-inline-block align-top nav_photo" if @current_user.image.present? %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout #{ @current_user.email }", login_path, :method => 'delete', :class => "nav-link" %>
+          </li>
+            <% else %>
+          <li class="nav-item ">
+            <%= link_to "Register", new_user_path, :class => "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign in", login_path, :class => "nav-link" %>
+          </li>
+
+        </ul>
       <% end %>
+      </div>
     </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

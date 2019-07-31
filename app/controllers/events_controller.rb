@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :check_for_login, :only => [:attend]
-  before_action :check_for_admin, :only => [:edit, :destroy]
+  before_action :check_for_admin, :only => [:new, :edit, :destroy]
 
   def index
     @events = Event.all.order(:start_date)
@@ -12,6 +12,14 @@ class EventsController < ApplicationController
 
   def create
     event = Event.create event_params
+    if params[:file].present?
+      # Then call Cloudinary's upload method, passing in the file in params
+      req = Cloudinary::Uploader.upload(params[:file])
+      # Using the public_id allows us to use Cloudinary's powerful image
+      # transformation methods.
+      event.image = req["public_id"]
+      event.save
+    end
     redirect_to event
   end
 
@@ -21,7 +29,12 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find params[:id]
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      event.image = req["public_id"]
+    end
     event.update event_params
+    event.save
     redirect_to event
   end
 
