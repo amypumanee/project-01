@@ -7,7 +7,7 @@
           <h5 class="card-title"><%= event.title %></h5>
           <ul class="card-text">
               <li>Title: <%= link_to event.title, event %></li>
-              <li>Date: <%= event.start_date.strftime '%a, %b %e %y, %l:%M %P' %> to <%= event.end_date.strftime '%a, %b %e %y, %l:%M %P' %></li>
+              <li>Date: <%= event.start_date.strftime '%a, %b %e %Y, %l:%M %P' %> to <%= event.end_date.strftime '%a, %b %e %y, %l:%M %P' %></li>
               <li>Address: <%= event.address %></li>
             </ul>
         </div>

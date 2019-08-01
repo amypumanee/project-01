@@ -51,7 +51,9 @@ class EventsController < ApplicationController
   def attend
     event = Event.find params[:id]
     attend = Attend.create(:user_id => @current_user.id, :event_id => event.id)
-    redirect_to event # TODO: redirect_to user_events
+    attend.save
+    redirect_to event
+    # redirect_to user_events
   end
 
   private

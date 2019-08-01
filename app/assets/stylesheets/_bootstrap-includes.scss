@@ -1,5 +1,17 @@
 @import "bootstrap";
 
+body {
+  background-image: url(https://i.ytimg.com/vi/RgXqDCw7PA8/maxresdefault.jpg);
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: gray;
+}
+
 .container {
 margin-top: 70px;
 }
@@ -29,4 +41,9 @@ margin-top: 70px;
   height: 150px;
   display: inline;
   padding: 2px;
+}
+
+.img-my-event {
+  width: 20%;
+  height: 10%
 }

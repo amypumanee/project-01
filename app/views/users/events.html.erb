@@ -1,11 +1,18 @@
 <h1>My Events</h1>
-
-<ul>
+<div class="card-columns">
   <% @current_user.attends.each do |attend| %>
-    <li><%= link_to attend.event.title, event_path(attend.event_id) %></li>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag attend.event.image, :class => "card-img-top" %>
+        <div class="card-body text-center">
+          <%= link_to attend.event.title, event_path(attend.event_id), :class => "card-title" %>
+        </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
-<div id="calendar">
-
+<div class="card mb-3">
+  <div class="card-body">
+  <div id="calendar">
+  </div>
+  </div>
 </div>

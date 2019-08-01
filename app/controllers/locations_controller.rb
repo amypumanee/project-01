@@ -11,6 +11,14 @@ class LocationsController < ApplicationController
 
   def create
     location = Location.create location_params
+    if params[:file].present?
+      # Then call Cloudinary's upload method, passing in the file in params
+      req = Cloudinary::Uploader.upload(params[:file])
+      # Using the public_id allows us to use Cloudinary's powerful image
+      # transformation methods.
+      location.image = req["public_id"]
+      location.save
+    end
     redirect_to location
   end
 
@@ -20,7 +28,12 @@ class LocationsController < ApplicationController
 
   def updated
     location = Location.find params[:id]
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      location.image = req["public_id"]
+    end
     location.update location_params
+    location.save
     redirect_to location
   end
 

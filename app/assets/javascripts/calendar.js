@@ -1,5 +1,5 @@
 $(document).ready(function () {
   $('#calendar').fullCalendar({
-     events: '/users/events.json'
+      events: '/users/events.json'
   });
 });

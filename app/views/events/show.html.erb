@@ -1,17 +1,17 @@
 <div class="card mb-3">
   <%= cl_image_tag @event.image, :class=>"card-img-top" %>
     <div class="card-body">
-      <h1 class="card-title"><%= @event.title %></h1>
+      <h2 class="card-title"><%= @event.title %></h2>
       <ul class="card-text">
         <li>Title: <%= @event.title %></li>
-          <li>Date: <%= @event.start_date.strftime '%a, %b %e %y, %l:%M %P' %> to <%= @event.end_date.strftime '%a, %b %e %y, %l:%M %P' %> </li>
+          <li>Date: <%= @event.start_date.strftime '%a, %b %e %Y, %l:%M %P' %> to <%= @event.end_date.strftime '%a, %b %e %Y, %l:%M %P' %> </li>
         <li>Address: <%= @event.address %></li>
         <% if @event.location.present? %>
         <li>Explore location: <%= link_to @event.location.name, @event.location %></li>
         <% end %>
       </ul>
       <p class="card-text"><%= @event.info if @event.info.present?%></p>
-      <%= button_to "Attend!", attend_path(@event), :method => 'post', :class => "btn btn-outline-warning" %>
+      <%= button_to "Attend!", attend_event_path(@event), :method => 'post', :class => "btn btn-outline-warning" %>
     </div>
 </div>
 

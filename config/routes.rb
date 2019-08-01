@@ -27,9 +27,7 @@ Rails.application.routes.draw do
   get '/users/:id/qrs' => 'users#qrs', :as => 'user_qrs'
 
   resources :events  #, :only => [:new, :create]
-  # post '/events/:id/attend' => 'events#attend', :as => 'attend_event'
-
-  resources :attends
+  post '/events/:id/attend' => 'events#attend', :as => 'attend_event'
 
   resources :locations
 

@@ -1,20 +1,27 @@
-<h1>Log in</h1>
+<h1>Sign in</h1>
+<div class="card text-white bg-secondary mb-3" style="max-width: 28rem;">
+  <div class="card-body">
+    <p>
+      <%= flash[:error_message] %>
+    </p>
 
-<p>
-  <%= flash[:error_message] %>
-</p>
+    <%= form_tag login_path do %>
+      <div class="form-group">
+        <%= label_tag :email %>
+        <div class="col-sm">
+          <%= email_field_tag :email, nil, :placeholder => "Enter email", :class => 'form-control' %>
+        </div>
+      </div>
 
-<%= form_tag login_path do %>
-  <div class="form-group">
-    <%= label_tag :email %>
-    <%= email_field_tag :email, nil, :class => 'forn-control' %>
+      <div class="form-group">
+        <%= label_tag :password %>
+        <div class="col-sm">
+          <%= password_field_tag :password, nil, :placeholder => "Password", :class => 'form-control' %>
+        </div>
+      </div>
+
+      <%= submit_tag "Sign in", :class => "btn btn-primary" %>
+
+    <% end %>
   </div>
-
-  <div class="form-group">
-    <%= label_tag :password %>
-    <%= password_field_tag :password, nil, :class => 'form-control' %>
-  </div>
-
-  <%= submit_tag "Sign in", :class => "btn btn-primary" %>
-
-<% end %>
+</div>
