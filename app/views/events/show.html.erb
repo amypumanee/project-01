@@ -21,7 +21,7 @@
     <ul>
       <li class="img-attendee">
         <% @event.attends.each do |attend| %>
-          <%= image_tag attend.user.image, :class => 'img-attendee rounded-circle' if attend.user.image.present? %>
+          <%= cl_image_tag attend.user.image, :class => 'img-attendee rounded-circle' if attend.user.image.present? %>
         <% end %>
       </li>
     </ul>

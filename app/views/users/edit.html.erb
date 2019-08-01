@@ -1,7 +1,7 @@
 <h1>Update your profile</h1>
 <div class="card text-white bg-secondary mb-3" style="max-width: 28rem;">
   <div class="card-body">
-    <%= form_for @user do |f| %>
+    <%= form_for @user, :html => {:multipart => true} do |f| %>
       <div class="form-group">
         <%= f.label :email %>
         <div class="col-sm">

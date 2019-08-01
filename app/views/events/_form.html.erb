@@ -1,6 +1,6 @@
 <div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
   <div class="card-body">
-    <%= form_for @event do |f| %>
+    <%= form_for @event, :html => {:multipart => true} do |f| %>
       <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, :autofocus => true, :required => true, :class => 'form-control' %>
