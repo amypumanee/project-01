@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       req = Cloudinary::Uploader.upload(params[:file])
       user.image = req["public_id"]
     end
-    user.update event_params
+    user.update user_params
     user.save
     redirect_to root_path
   end
