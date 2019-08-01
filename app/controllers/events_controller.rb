@@ -45,7 +45,7 @@ class EventsController < ApplicationController
   def destroy
     event = Event.find params[:id]
     event.destroy
-    redirect_to event_path
+    redirect_to events_path
   end
 
   def attend
@@ -53,7 +53,6 @@ class EventsController < ApplicationController
     attend = Attend.create(:user_id => @current_user.id, :event_id => event.id)
     attend.save
     redirect_to event
-    # redirect_to user_events
   end
 
   private
